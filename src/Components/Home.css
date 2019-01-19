@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css?family=Codystar|VT323|Graduate');
+
+.home-body {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    /* margin: auto; */
+    /* height: 100vh; */
+    background-image: radial-gradient(rgb(180, 180, 180) 0%,  black 110%);
+    
+    color: whitesmoke;
+    /* padding: 5vmin; */
+}
+
+.home-header{
+    margin-top: 0;
+    position: relative;
+    /* padding: 2.5vmin; */
+    /* width: 100vw; */
+    text-align: center;
+    font-size: 8vmin;
+    font-weight: bolder;
+    font-family: 'Graduate', cursive;
+    background-image: url('http://www.adobegunlugu.com/file/Basketball-Court-Floor-Texture-WearTesters.jpg');
+    background-size: 100vw;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    /* background-clip:  */
+    border-bottom: 10px solid rgb(0, 0, 0);
+
+}

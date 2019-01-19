@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css?family=Codystar|VT323|Graduate');
+@import url('https://fonts.googleapis.com/css?family=Carrois+Gothic+SC|Geo|Graduate');
+/* font-family: 'VT323', monospace; */
+/* font-family: 'Codystar', cursive; */
+/* font-family: 'Graduate', cursive; */
+/* font-family: 'Geo', sans-serif; */
+/* font-family: 'Carrois Gothic SC', sans-serif; */
+
+
+
+.startForm {
+    /* width: 100vw; */
+    padding: 1vmin;
+    margin: 2.5vmin 2.5vmin 0 2.5vmin;
+    font-family: 'Carrois Gothic SC', sans-serif;
+    font-size: 4vmin;
+    text-align: left;
+    color: whitesmoke;
+    font-weight: bolder;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 2.5px ridge orangered;
+    border-left: 2.5px ridge orangered;
+    border-right: 2.5px ridge orangered;
+    background-color: rgba(12, 10, 10, 0.472);
+    border-radius: 20px 20px 0 0;
+}
+
+.frmInput {
+    margin: 2vmin;
+    /* width: 50%; */
+}
+.frmBtn {
+    min-width: 20vmin;
+    background-color: whitesmoke;
+    border: 1px solid black;
+    border-radius: 1vmin;
+    margin: 1vmin;
+    padding: .5vmin 2vmin;
+
+}
+
+
+
+
+/* .startGame-body {
+    width: 100vw;
+    height: 100%;
+    background-image: url('http://www.adobegunlugu.com/file/Basketball-Court-Floor-Texture-WearTesters.jpg');
+} */
+
