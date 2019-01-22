@@ -21,9 +21,9 @@
 }
 
 h1{
-    font-family: 'Geo', sans-serif;
+    font-family: 'Graduate', cursive;
     font-weight: 1800px;
-    font-size: 15vmin;
+    font-size: 10vmin;
     color: rgb(255, 196, 0);
 }
 .scoreboardContainer{
@@ -101,6 +101,14 @@ h1{
     font-size: 4vmin;
 }
 
+#possYes {
+    color: orangered;
+}
+
+#possNo {
+    color: gray;
+}
+
 .clock {
     grid-area: time;
     display: grid;
@@ -108,9 +116,9 @@ h1{
     align-items: center;
     border: 2.5px solid white;
     border-radius: 10px;
-    font-family: 'Geo', sans-serif;
+    font-family: 'Graduate', cursive;
     font-weight: 1800px;
-    font-size: 20vmin;
+    font-size: 10vmin;
     color: rgb(255, 196, 0);
     /* padding: 0 5vmin; */
 
@@ -131,7 +139,7 @@ h1{
     margin: 2.5vmin auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 2fr;
+    grid-template-rows: 1fr 4fr;
     grid-template-areas: 
     "timeCtrl timeCtrl"
     "score1Ctrl score2Ctrl";
@@ -172,13 +180,50 @@ h1{
     padding: 2vmin;
 }
 
-#timeBtn {
-    width: 10vmin;
+.possBtn {
+    width: 20vmin;
     border: 1px solid black;
     background-color: yellow;
     border-radius: 1vmin;
     margin: 1vmin;
+    font-family: 'Carrois Gothic SC', sans-serif;
+    font-size: 2.5vmin;
+    padding: 1vmin;
+
 }
+.perBtn {
+    width: 5vmin;
+    border: 1px solid black;
+    background-color: yellow;
+    border-radius: 1vmin;
+    margin: .5vmin;
+    font-family: 'Carrois Gothic SC', sans-serif;
+    font-size: 2.5vmin;
+    padding: 1vmin;
+
+}
+
+#timeBtn {
+    width: 18vmin;
+    border: 1px solid black;
+    background-color: yellow;
+    border-radius: 1vmin;
+    margin: 1vmin;
+    font-family: 'Carrois Gothic SC', sans-serif;
+    font-size: 2.5vmin;
+    padding: 1vmin;
+}
+#timeBtn:disabled {
+    width: 20vmin;
+    border: 1px solid black;
+    background-color: rgba(255, 255, 0, 0.356);
+    border-radius: 1vmin;
+    margin: 1vmin;
+    font-family: 'Carrois Gothic SC', sans-serif;
+    font-size: 2.5vmin;
+    padding: 1vmin;
+}
+
 
 #scoreBtnAdd {
     width: 10vmin;

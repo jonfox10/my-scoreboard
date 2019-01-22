@@ -21,11 +21,12 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    border-top: 2.5px ridge orangered;
-    border-left: 2.5px ridge orangered;
+    border: 2.5px ridge orangered;
+    /* border-left: 2.5px ridge orangered;
     border-right: 2.5px ridge orangered;
+    border-right: 2.5px ridge orangered; */
     background-color: rgba(12, 10, 10, 0.472);
-    border-radius: 20px 20px 0 0;
+    border-radius: 20px;
 }
 
 .frmInput {
