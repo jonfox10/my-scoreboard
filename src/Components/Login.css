@@ -6,15 +6,15 @@
 /* font-family: 'Geo', sans-serif; */
 /* font-family: 'Carrois Gothic SC', sans-serif; */
 
-.gameCreator-container {
+.login-container {
     position: relative;
     width: 100%;
     padding-top: 45%;
 }
 
-.startForm {
+.login-form {
     /* width: 90vw; */
-    padding: 2.5vmin 5vmin;
+    padding: 2.5vmin 0;
     /* padding-top: 2.5vmin; */
     /* margin: 2.5vmin 2.5vmin 0 2.5vmin; */
     font-family: 'Carrois Gothic SC', sans-serif;
@@ -33,7 +33,13 @@
     background-color: #25242D;
     border-radius: 20px;
 }
-.startForm h3{
+
+.login-forms {
+    margin: 5vmin;
+}
+
+
+.login-form h3{
  margin-bottom: 5vmin;
  color: #D53900;
  font-size: 8vmin;
@@ -59,17 +65,45 @@
     border-bottom: 1px solid #D53900;
     /* color: #D53900 */
 }
-.frmBtn {
+.loginBtn {
     min-width: 20vmin;
-    background-color: whitesmoke;
-    border: 1px solid black;
+    background-color: #D53900;
+    border: 1vmin ridge #25242D;
     border-radius: 1vmin;
     margin: 1vmin;
-    padding: .5vmin 2vmin;
+    padding: 5vmin;
+    font-family: 'Graduate', cursive;
+    font-size: 5vmin;
+    font-weight: bolder;
 
 }
+.loginBtn:focus {
+    outline: none;
+    
+}
+.loginBtn:hover {
+    box-shadow: 1px 1px 15px 5px #D53900;
+    
+}
 
-
+#btnL {
+    border-radius: 5vmin 0 0 5vmin;
+    margin-right: 0;
+}
+#btnR {
+    border-radius:  0 5vmin 5vmin 0;
+    margin-left: 0;
+}
+#btnL2 {
+    border-radius: 5vmin 0 0 5vmin;
+    margin-right: 0;
+    padding: 2vmin;
+}
+#btnR2 {
+    border-radius:  0 5vmin 5vmin 0;
+    margin-left: 0;
+    padding: 2vmin;
+}
 
 
 /* .startGame-body {

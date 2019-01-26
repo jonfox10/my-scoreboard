@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 // import './App.css';
 import './GameCreator.css'
 import Scoreboard from './Scoreboard'
+import axios from 'axios'
+
 
 class GameCreator extends Component {
     constructor(props) {
@@ -15,7 +17,8 @@ class GameCreator extends Component {
             clockStarted: false,
             clockStopped: true,
             clockRunning: false,
-            periodMinutes: ''
+            periodMinutes: '',
+            sport: 'basketball'
         }
         
     }
@@ -24,7 +27,10 @@ class GameCreator extends Component {
         this.setState({
             visible: true,
             minutes: this.state.periodMinutes
-        })
+        });
+
+        axios.post('/api/game', this.state);
+
     }
 
     closeScoreboard = (event) => {
@@ -121,13 +127,11 @@ class GameCreator extends Component {
 
 
   render() {
-    //   const teamOne = this.state.teamOne;
-    //   const teamTwo = this.state.teamTwo;
     return (
-      <div>
+      <div className='gameCreator-container'>
           {!this.state.visible ? (
             <div className='startForm'>
-                <h3 style={{fontSize: '6vmin', textDecoration: 'underline'}}>START GAME</h3>
+                <h3>START GAME</h3>
                 {/* <br/> */}
                 <>
                     <div>               
@@ -150,6 +154,7 @@ class GameCreator extends Component {
                                 onChange={this.handleInputChange}
                                 />
                     </div> 
+                    <div>
                     {/* <br/> */}
                     Minutes Per Period: <input 
                             type='number'
@@ -158,9 +163,11 @@ class GameCreator extends Component {
                             min='1'
                             max='60'
                             name='periodMinutes'
+                            placeholder='0'
                             value={this.state.periodMinutes}
                             onChange={this.handleInputChange}
                             />
+                    </div>
                     <div>
                         <button className='frmBtn' onClick={this.handleStartGame}>START GAME</button>
                         <button className='frmBtn' onClick={this.handleClear}>CLEAR</button>
@@ -174,23 +181,17 @@ class GameCreator extends Component {
                     <Scoreboard 
                         team1={this.state.teamOne}
                         team2={this.state.teamTwo}
-                        time={this.state.minutes}
                         visible={this.state.visible}
                         minutes={this.state.minutes}
                         seconds={this.state.seconds}
                         startCountDown={this.startCountDown}
-                        startClock={this.startClock}
-                        stopClock={this.stopClock}
-                        handleClockStart={this.handleClockStart}
                         handleClockStop={this.handleClockStop}
-                        pauseClock={this.pauseClock}
                         contCountDown={this.contCountDown}
                         clockStarted={this.state.clockStarted}
                         clockStopped={this.state.clockStopped}
                         clockRunning={this.state.clockRunning}
                         newQtr={this.newQtr}
                         closeScoreboard={this.closeScoreboard}
-
                         />
                     </div>
             </div>

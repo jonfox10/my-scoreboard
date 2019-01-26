@@ -93,9 +93,9 @@ class Scoreboard extends Component {
         )
     }
 
-    let ctrlBtns = null;
+    let clockBtns = null;
     if (this.props.clockStarted){  
-        ctrlBtns = (
+        clockBtns = (
         <>
             <button id='timeBtn'>start period</button>
             <button onClick={this.props.handleClockStop} id='timeBtn'>stop</button>
@@ -103,7 +103,7 @@ class Scoreboard extends Component {
         </>
         )
     } else {
-        ctrlBtns = (
+        clockBtns = (
             <>
             <button onClick={this.props.startCountDown} id='timeBtn'>start period</button>
             <button onClick={this.props.handleClockStop} id='timeBtn'>stop</button>
@@ -149,7 +149,7 @@ class Scoreboard extends Component {
             <div className='ctrls'>
                 <div className='timeCtrl'>
                     <p>time:</p>
-                    {ctrlBtns}
+                    {clockBtns}
                     {/* <input type='time'></input> */}
                     <button onClick={this.props.newQtr} id='timeBtn'>reset</button>
                     p: <button className='perBtn' onClick={this.addPeriod}>+</button>

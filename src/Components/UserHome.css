@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css?family=Codystar|VT323|Graduate');
+@import url('https://fonts.googleapis.com/css?family=Carrois+Gothic+SC|Geo|Graduate');
+/* font-family: 'VT323', monospace; */
+/* font-family: 'Codystar', cursive; */
+/* font-family: 'Graduate', cursive; */
+/* font-family: 'Geo', sans-serif; */
+/* font-family: 'Carrois Gothic SC', sans-serif; */
+
+.user-container {
+    position: relative;
+    margin: 5vmin 0;
+    /* width: 100vw; */
+    height: 80vh;
+    /* padding-top: 5vmin; */
+    /* z-index: 5; */
+    /* border: 5px solid red; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.user-container h3{
+    font-family: 'Graduate', cursive;
+    color: white;  
+}
