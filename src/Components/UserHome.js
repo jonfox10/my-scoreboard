@@ -32,7 +32,7 @@ class UserHome extends Component {
     
     componentDidMount(){
         // this.mounted = true;
-        this.getMyGames();
+        // this.getMyGames();
         console.log(this.state);
         
     }
@@ -82,33 +82,14 @@ class UserHome extends Component {
 
 
 
-    componentDidUpdate(prevState) {
-        if (this.state.userGames !== prevState.userGames){
-            this.getMyGames();
-        }
-    }
+    // componentDidUpdate(prevState) {
+    //     if (this.state.userGames !== prevState.userGames){
+    //         // this.getMyGames();
+    //     }
+    // }
     
 
     render(){
-
-        // let login = null;
-        // if (!this.state.userLoggedIn){
-        //     login = (
-        //         <>
-        //          <Login userLoggedIn={this.state.userLoggedIn} 
-        //          updateUser={this.updateUser}
-        //          logout={this.logout}
-        //          />
-        //         </>
-        //     )
-        // } else {
-        //     login = (
-        //         <>
-        //             {/* <button className='loginBtn' id='logoutBtn' onClick={this.logout} >LOGOUT</button> */}
-        //         </>
-        //     )
-        // }
-
 
         return(
             <div className='user-container'>
@@ -116,6 +97,7 @@ class UserHome extends Component {
                     <Login userLoggedIn={this.state.userLoggedIn} 
                     updateUser={this.updateUser}
                     logout={this.logout}
+                    getMyGames={this.getMyGames}
                     />
                     <GameCreator 
                     userGames={this.state.userGames}

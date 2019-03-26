@@ -77,7 +77,8 @@ class Login extends Component {
             .then(res => {
                 const user = res.data;
                 this.props.updateUser(user);
-                this.setState({email: '', password: '', })
+                this.setState({email: '', password: '', });
+                this.props.getMyGames();
             
             })
             .catch(err => console.log(err.response.request.response));

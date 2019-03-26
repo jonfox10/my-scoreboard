@@ -120,6 +120,7 @@
 }
 .loginBtn:hover {
     box-shadow: 1px 1px 15px 5px #D53900;
+    cursor: pointer;
     
 }
 

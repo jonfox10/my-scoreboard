@@ -2,9 +2,9 @@
 /* font-family: 'Geo', sans-serif; */
 /* font-family: 'Carrois Gothic SC', sans-serif; */
 .home-container {
-    position: relative;
-    /* top: 0;
-    left: 0; */
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100vw;
     min-height: 100vh;
     /* margin: auto; */
@@ -16,7 +16,7 @@
     font-weight: bolder;
     font-family: 'Graduate', cursive;
     background-color: #25242D90;
-    /* z-index: 0; */
+    z-index: 0;
     /* border: 5px ridge #D53900; */
 }
 .home-body {
@@ -32,7 +32,7 @@
     color: #D53900;
     /* background-color: #25242D90; */
     padding: 5vmin;
-    margin-top: 8vh;
+    margin-top: 10vh;
 }
 
 .home-body h3 {
