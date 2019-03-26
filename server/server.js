@@ -32,6 +32,7 @@ massive(CONNECTION_STRING).then(db => {
 
 
 app.use(bodyParser.json())
+app.use(express.static(`${__dirname}/../build`));
 app.use(session({
     resave: true,
     saveUninitialized: false,
