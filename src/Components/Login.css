@@ -9,7 +9,11 @@
 .login-container {
     position: relative;
     width: 100%;
-    padding-top: 45%;
+    min-height: 10vh;
+    display: flex;
+    flex-direction: column;
+    margin-top: 15vh;
+    /* padding-top: 10vh; */
 }
 
 .login-form {
@@ -38,6 +42,30 @@
     margin: 5vmin;
 }
 
+.frmInput {
+    margin: 2vmin;
+    /* width: 50%; */
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #DCE1D8;
+    color: #D53900;
+    font-size: 4vmin;
+
+}
+.frmInput:focus {
+    border: none;
+    outline: none;
+    margin: 2vmin;
+    /* width: 50%; */
+    background-color: rgba(213, 57, 0, 0.40);
+    border: none;
+    border-bottom: 1px solid #D53900;
+    /* color: #D53900 */
+}
+
+
+
+
 
 .login-form h3{
  margin-bottom: 5vmin;
@@ -45,6 +73,10 @@
  font-size: 8vmin;
  text-decoration: underline;
  font-family: 'Graduate', cursive;
+}
+
+.login-form input {
+    font-size: 4vmin;
 }
 
 .frmInput {
@@ -65,15 +97,20 @@
     border-bottom: 1px solid #D53900;
     /* color: #D53900 */
 }
+.loginButtons{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
 .loginBtn {
     min-width: 20vmin;
     background-color: #D53900;
-    border: 1vmin ridge #25242D;
-    border-radius: 1vmin;
-    margin: 1vmin;
-    padding: 5vmin;
+    border: .5vmin ridge #25242D;
+    border-radius: 5vmin;
+    margin: 1vmin 0;
+    padding: .5vmin 1vmin;
     font-family: 'Graduate', cursive;
-    font-size: 5vmin;
+    font-size: 3vmin;
     font-weight: bolder;
 
 }
@@ -94,15 +131,20 @@
     border-radius:  0 5vmin 5vmin 0;
     margin-left: 0;
 }
+#btnM {
+    border-radius: 0;
+    margin-left:0;
+    margin-right:0;
+}
 #btnL2 {
     border-radius: 5vmin 0 0 5vmin;
     margin-right: 0;
-    padding: 2vmin;
+    padding: .5vmin 1vmin;
 }
 #btnR2 {
     border-radius:  0 5vmin 5vmin 0;
     margin-left: 0;
-    padding: 2vmin;
+    padding: .5vmin 1vmin;
 }
 
 

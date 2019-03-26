@@ -7,45 +7,73 @@
 /* font-family: 'Geo', sans-serif; */
 /* font-family: 'Carrois Gothic SC', sans-serif; */
 
+.scoreboardAndControlsContainer{
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    /* display: flex;
+    flex-direction: column; */
+    /* justify-content: space-around; */
+    /* padding: 10vmin 0; */
+}
+
 .scoreboardBody{
     position: relative;
-    width: 100vw;
-    padding: 15px 0;
-    /* padding-bottom: 28.125%; */
+    padding: 2.5vmin;
+    margin-top: 10vh;
     background-color: rgb(38, 36, 45);
-    /* color: white; */
-    margin: auto;
     display: flex;
-    border: 2px dotted red;
+    /* height: 40vh; */
+    /* width: 95vw; */
 
 }
 
 h1{
     font-family: 'Graduate', cursive;
     font-weight: 1800px;
-    font-size: 10vmin;
+    /* font-size: 10vmin; */
     color: rgb(255, 196, 0);
 }
 .scoreboardContainer{
     position: relative;
-    width: 414px;
-    height: 275px;
+    /* width: 414px; */
+    width: 92%;
+    height: 45vh;
     border: 5px solid white;
     color: white;
-    display: grid;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: space-between;
+    /* display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     grid-template-areas: 
     "poss1 time time time poss2"
     "score1 score1 period score2 score2";
-    grid-gap: 2.5vmin;
+    grid-gap: 2.5vmin; */
     /* justify-content: center; */
     /* align-items: flex-start; */
     /* padding-top: 28.125%;
     padding-bottom: 28.125%; */
     border-radius: 10px;
-    margin: auto;
-    padding: 5vmin;
+    margin: 0 auto;
+    padding: 2.5vmin;
+}
+
+.scoreboardTop {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: 
+    "poss1 time poss2";
+    grid-gap: 2.5vmin;
+    
+}
+
+.scoreBoardBottom {
+    display: flex;
+    justify-content: space-around;
 }
 
 .team1 {
@@ -61,7 +89,11 @@ h1{
  /* font-weight: 1800px; */
  font-size: 5vmin;
  /* color: rgb(255, 196, 0); */
+ /* padding-top: 5vmin; */
+ height: 20vh;
+ width: 18vh;
 }
+
 .team2 {
  color: white;
  grid-area: score2;
@@ -72,21 +104,28 @@ h1{
  border: 2.5px solid white;
  border-radius: 10px;
  font-size: 5vmin;
+ height: 20vh;
+ width: 18vh;
 
+}
+#scoreNum {
+    font-size: 15vmin;
+    margin-top: 2.5vmin;
 }
 #team1 {
     color: white;
-    /* border: 1px solid red; */
     grid-area: score1;
+    font-size: 7.5vmin;
+    
 }
 #team2 {
     color: white;
-    /* border: 1px solid red; */
     grid-area: score2;
+    font-size: 7.5vmin;
 }
 .poss1 {
     grid-area: poss1;
-    display: grid;
+    display: flex;
     justify-content: center;
     align-items: center;
     font-family: 'Graduate', cursive;
@@ -94,7 +133,7 @@ h1{
 }
 .poss2 {
     grid-area: poss2;
-    display: grid;
+    display: flex;
     justify-content: center;
     align-items: center;
     font-family: 'Graduate', cursive;
@@ -111,7 +150,8 @@ h1{
 
 .clock {
     grid-area: time;
-    display: grid;
+    display: flex;
+    /* width: 90%; */
     justify-content: center;
     align-items: center;
     border: 2.5px solid white;
@@ -120,6 +160,7 @@ h1{
     font-weight: 1800px;
     font-size: 10vmin;
     color: rgb(255, 196, 0);
+    height: 15vh;
     /* padding: 0 5vmin; */
 
 }
@@ -129,29 +170,31 @@ h1{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: 3vmin;
+    font-size: 6vmin;
 
 
 
 }
 .ctrls {
     width: 90vw;
-    margin: 2.5vmin auto;
-    display: grid;
+    margin: 0 auto;
+    /* display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 4fr;
+    grid-template-rows: 1fr 1.75fr;
     grid-template-areas: 
     "timeCtrl timeCtrl"
-    "score1Ctrl score2Ctrl";
+    "score1Ctrl score2Ctrl"; */
     /* grid-gap: 2.5vmin; */
+    display: flex;
+    flex-direction: column;
     border-radius: 5px;
     border: 5px solid black;
     /* padding: 2.5vmin; */
-    background-color: rgba(0, 195, 255, 0.459);
+    background-color: rgba(245, 247, 248, 0.349);
 
 }
 .timeCtrl {
-    width: 100%;
+    /* width: 100vw; */
     grid-area: timeCtrl;
     display: flex;
     flex-wrap: wrap;
@@ -160,24 +203,38 @@ h1{
     border-bottom: 5px solid black;
     margin: 0 auto;
     padding: 1vmin;
+    font-size: 6vmin;
+
+}
+.timeCtrl p {
+    font-size: 6vmin;
+}
+
+.teamCtrls {
+    display: flex;
+    justify-content: center;
 }
 .team1Ctrl {
     grid-area: score1Ctrl;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     border-right: 2.5px solid black;
-    padding: 2vmin;
+    font-size: 6vmin;
+    padding: 0 2vmin;
+    margin-right: 0;
 }
 .team2Ctrl {
     grid-area: score2Ctrl;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     border-left: 2.5px solid black;
-    padding: 2vmin;
+    font-size: 6vmin;
+    padding: 0 2vmin;
+    margin-left: 0;
 }
 
 .possBtn {
@@ -188,6 +245,7 @@ h1{
     margin: 1vmin;
     font-family: 'Carrois Gothic SC', sans-serif;
     font-size: 2.5vmin;
+    font-weight: bold;
     padding: 1vmin;
 
 }
@@ -198,6 +256,7 @@ h1{
     border-radius: 1vmin;
     margin: .5vmin;
     font-family: 'Carrois Gothic SC', sans-serif;
+    font-weight: bold;
     font-size: 2.5vmin;
     padding: 1vmin;
 
@@ -210,6 +269,7 @@ h1{
     border-radius: 1vmin;
     margin: 1vmin;
     font-family: 'Carrois Gothic SC', sans-serif;
+    font-weight: bold;
     font-size: 2.5vmin;
     padding: 1vmin;
 }
@@ -226,21 +286,192 @@ h1{
 
 
 #scoreBtnAdd {
-    width: 10vmin;
-    height: 10vmin;
+    width: 8vmin;
+    height: 8vmin;
     border: 1px solid black;
     background-color: green;
     margin: 1vmin;
     border-radius: 2.5vmin;
-    font-size: 5vmin;
+    font-size: 3.5vmin;
+    font-weight: bolder
 
 }
 #scoreBtnMinus {
-    width: 10vmin;
-    height: 10vmin;
+    width: 8vmin;
+    height: 8vmin;
     border: 1px solid black;
     background-color: red;
     margin: 1vmin;
     border-radius: 2.5vmin;
-    font-size: 5vmin;
+    font-size: 3.5vmin;
+    font-weight: bolder
+}
+.closeContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+#closeBtn {
+    /* width: 25vmin; */
+    border: 1px solid black;
+    background-color: yellow;
+    border-radius: 1vmin;
+    margin: 0 auto;
+    font-family: 'Carrois Gothic SC', sans-serif;
+    font-weight: bold;
+    font-size: 2.5vmin;
+    padding: 1vmin;
+    /* grid-area: closeBtn; */
+}
+
+@media (min-width: 700px) {
+
+    /* h1{
+        font-size: 5vmin;
+    } */
+
+    .scoreboardContainer{
+        
+        height: 60vh;
+        
+    }
+    .team1 {
+        /* height: 25vh;
+        width: 25vh; */
+        padding: 5vmin;
+    }
+       
+    .team2 {
+        padding: 5vmin;
+    
+    }
+    #scoreNum {
+        font-size: 15vmin;
+        margin-top: 2.5vmin;
+    }
+    #team1 {
+        grid-area: score1;
+        font-size: 10vmin;
+        
+    }
+    #team2 {
+        grid-area: score2;
+        font-size: 10vmin;
+    }
+
+    .scoreboardAndControlsContainer h4 {
+        font-size: 4vmin;
+    }
+    #closeBtn {
+        margin-top: 0px;
+    }
+    .ctrls {
+        width: 90vw;
+        margin: 0 auto;
+        border: 5px solid black;
+        /* padding: 2.5vmin; */
+        background-color: rgba(245, 247, 248, 0.349);
+        /* height: 16vh; */
+    
+    }
+    .timeCtrl {
+        /* width: 100vw; */
+        grid-area: timeCtrl;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 5px solid black;
+        margin: 0 auto;
+        padding: 1vmin;
+        font-size: 6vmin;
+    
+    }
+    .timeCtrl p {
+        font-size: 3vmin;
+    }
+    .team1Ctrl {
+        grid-area: score1Ctrl;
+        display: flex;
+        flex-direction: row;
+        /* justify-content: center;
+        align-items: center;
+        border-right: 2.5px solid black; */
+        font-size: 4vmin;
+        /* padding: 1vmin; */
+    }
+    .team2Ctrl {
+        grid-area: score2Ctrl;
+        display: flex;
+        flex-direction: row;
+        /* justify-content: center; */
+        /* align-items: center; */
+        /* border-left: 2.5px solid black; */
+        font-size: 4vmin;
+        /* padding: 1vmin; */
+    }
+    
+    .possBtn {
+        margin: 1vmin;
+        font-size: 2vmin;
+        padding: .5vmin;
+    
+    }
+    .perBtn {
+        width: 4vmin;
+        border-radius: 1vmin;
+        margin: .5vmin;
+        font-size: 2vmin;
+        padding: .5vmin;
+    
+    }
+    
+    #timeBtn {
+        width: 14vmin;
+        font-size: 2vmin;
+        padding: .5vmin;
+    }
+    #scoreBtnAdd {
+        width: 5vmin;
+        height: 5vmin;
+        border-radius: 2vmin;
+        font-size: 2vmin;
+    }
+    #scoreBtnMinus {
+        width: 5vmin;
+        height: 5vmin;
+        margin: 1vmin;
+        border-radius: 2vmin;
+        font-size: 2vmin;
+    }
+    
+}
+
+@media (min-width: 1000px) {
+    .team1 {
+        /* height: 25vh;
+        width: 25vh; */
+        padding: 6.5vmin;
+    }
+       
+    .team2 {
+        padding: 6.5vmin;
+    
+    }
+    .ctrls {
+        width: 100vw;
+    }
+
+}
+
+@media (min-width: 1370px){
+    .scoreboardContainer{
+        width: 92%;
+        height: 55vh;
+    }
+    .ctrls {
+        width: 99%
+    }
 }

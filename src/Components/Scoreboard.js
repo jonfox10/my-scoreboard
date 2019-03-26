@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './Scoreboard.css'
-
+import buzzer from '../sounds/Door Buzzer-SoundBible.com-1567875395.mp3'
 
 
 class Scoreboard extends Component {
@@ -16,45 +16,45 @@ class Scoreboard extends Component {
         }      
         
     }
-    addOneT1 = (event) =>  {
+    addOneT1 = () =>  {
         this.setState({ score1: this.state.score1 + 1})
     };
-    addTwoT1 = (event) =>  {
+    addTwoT1 = () =>  {
         this.setState({
             score1: this.state.score1 + 2})
     };
-    addThreeT1 = (event) =>  {
+    addThreeT1 = () =>  {
         this.setState({
             score1: this.state.score1 + 3})
     };
-    minusOneT1 = (event) =>  {
+    minusOneT1 = () =>  {
         this.setState({
             score1: this.state.score1 - 1})
     };
-    addOneT2 = (event, team) =>  {
+    addOneT2 = () =>  {
         this.setState({
             score2: this.state.score2 + 1})
     };
-    addTwoT2 = (event, team) =>  {
+    addTwoT2 = () =>  {
         this.setState({
             score2: this.state.score2 + 2})
     };
-    addThreeT2 = (event, team) =>  {
+    addThreeT2 = () =>  {
         this.setState({
             score2: this.state.score2 + 3})
     };
-    minusOneT2 = (event) =>  {
+    minusOneT2 = () =>  {
         this.setState({
             score2: this.state.score2 - 1})
     };
 
-    addPeriod = (event) => {
+    addPeriod = () => {
         this.setState({
             period: this.state.period + 1
         })
-        return this.props.newQtr;
+        this.props.newQtr();
     }
-    minusPeriod = (event) => {
+    minusPeriod = () => {
         this.setState({
             period: this.state.period - 1
         })
@@ -112,28 +112,37 @@ class Scoreboard extends Component {
         )
     }
     let clock = null;
-    if (this.props.visiable & this.props.minutes > 9){
-        clock = (
-            <h1 className='clock'>{this.props.minutes}:{this.props.seconds}</h1>
-        )
+    
+    if (this.props.minutes < 1 & this.props.seconds === '00'){
+    clock = (
+        <>
+        <h1 className='clock' id='scoreNum' style={{color: 'red', border: '2.5px solid red'}}>{this.props.minutes}:{this.props.seconds}</h1>
+        <audio autoPlay src={buzzer} type="audio/mpeg" style={{display: 'none'}}/>
+        </>
+
+    )
     } else {
-        clock = (
-            <h1 className='clock'>0{this.props.minutes}:{this.props.seconds}</h1>
-        )
+    clock = (
+        <h1 className='clock'id='scoreNum' style={{color: 'rgb(255, 196, 0)', border: '2.5px solid white'}}>{this.props.minutes}:{this.props.seconds}</h1>
+    )
     }
+    
 
     
 
     return (
-        <div>
+        <div className='scoreboardAndControlsContainer'>
             {/*scoreboard display*/}
-            <div className='scoreboardBody'>
+            <div className='scoreboardBody' id='scoreboardBody'>
                 <div className='scoreboardContainer'>
+                    <div className='scoreboardTop'>
                         {clock}
                         {possessionDisplay} 
+                    </div>
+                    <div className='scoreBoardBottom'>
                       <div className='team1'>
                         <h3 id='team1'>{this.props.team1}</h3>
-                        <h1>{this.state.score1}</h1>
+                        <h1 id='scoreNum'>{this.state.score1}</h1>
                       </div>
                       <div className='per'>
                         <p>PER:</p>
@@ -141,8 +150,9 @@ class Scoreboard extends Component {
                       </div>
                       <div className='team2'>
                         <h3 id='team2'>{this.props.team2}</h3>
-                        <h1>{this.state.score2}</h1>
+                        <h1 id='scoreNum'>{this.state.score2}</h1>
                       </div>
+                    </div>
                 </div>
             </div>
             {/* scoreboard control panel */}
@@ -152,32 +162,35 @@ class Scoreboard extends Component {
                     {clockBtns}
                     {/* <input type='time'></input> */}
                     <button onClick={this.props.newQtr} id='timeBtn'>reset</button>
-                    p: <button className='perBtn' onClick={this.addPeriod}>+</button>
+                    <h4>p:</h4> <button className='perBtn' onClick={this.addPeriod}>+</button>
                     <button className='perBtn' onClick={this.minusPeriod}>-</button>
                 </div>
-                <div className='team1Ctrl'>
-                {this.props.team1}
-                <button className='possBtn' onClick={this.homePossessionToggle}>possession</button>
-                    <div>
-                        <button id='scoreBtnAdd' onClick={this.addOneT1}>+1</button>
-                        <button id='scoreBtnAdd' onClick={this.addTwoT1}>+2</button>
-                        <button id='scoreBtnAdd' onClick={this.addThreeT1}>+3</button>
-                        <button id='scoreBtnMinus' onClick={this.minusOneT1}>-1</button>
+                <div className='teamCtrls'>
+                    <div className='team1Ctrl'>
+                    <h4>{this.props.team1}</h4>
+                    <button className='possBtn' onClick={this.homePossessionToggle}>possession</button>
+                        <div>
+                            <button id='scoreBtnAdd' onClick={this.addOneT1}>+1</button>
+                            <button id='scoreBtnAdd' onClick={this.addTwoT1}>+2</button>
+                            <button id='scoreBtnAdd' onClick={this.addThreeT1}>+3</button>
+                            <button id='scoreBtnMinus' onClick={this.minusOneT1}>-1</button>
+                        </div>
                     </div>
-                </div>
-                <div className='team2Ctrl'>
-                {this.props.team2}
-                <button className='possBtn' onClick={this.awayPossessionToggle}>possession</button>
-                    <div>
-                        <button id='scoreBtnAdd' onClick={this.addOneT2}>+1</button>
-                        <button id='scoreBtnAdd' onClick={this.addTwoT2}>+2</button>
-                        <button id='scoreBtnAdd' onClick={this.addThreeT2}>+3</button>
-                        <button id='scoreBtnMinus' onClick={this.minusOneT2}>-1</button>
+                    <div className='team2Ctrl'>
+                    <h4>{this.props.team2}</h4>
+                    <button className='possBtn' onClick={this.awayPossessionToggle}>possession</button>
+                        <div>
+                            <button id='scoreBtnAdd' onClick={this.addOneT2}>+1</button>
+                            <button id='scoreBtnAdd' onClick={this.addTwoT2}>+2</button>
+                            <button id='scoreBtnAdd' onClick={this.addThreeT2}>+3</button>
+                            <button id='scoreBtnMinus' onClick={this.minusOneT2}>-1</button>
+                        </div>
                     </div>
                 </div>
             </div>
-                <button id='timeBtn' onClick={this.props.closeScoreboard}>close scoreboard</button>
-                
+            <div className='closeContainer'>
+                <button id='closeBtn' onClick={this.props.closeScoreboard}>close controls</button>
+            </div>
         </div>
     )
   }

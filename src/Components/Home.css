@@ -1,8 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Codystar|VT323|Graduate');
+/* font-family: 'Geo', sans-serif; */
+/* font-family: 'Carrois Gothic SC', sans-serif; */
 .home-container {
     position: relative;
+    /* top: 0;
+    left: 0; */
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
     /* margin: auto; */
     /* height: 100vh; */
     /* background-image: radial-gradient(#DCE1D8 0%, #25242D 100%); */
@@ -11,18 +15,43 @@
     font-size: 8vmin;
     font-weight: bolder;
     font-family: 'Graduate', cursive;
-    z-index: 0;
+    background-color: #25242D90;
+    /* z-index: 0; */
+    /* border: 5px ridge #D53900; */
 }
 .home-body {
-    width: 100vw;
-    height: 80%;
+    /* width: 100%; */
+    /* height: 80%; */
     /* margin: auto; */
     /* height: 100vh; */
     /* background-image: radial-gradient(#7ebdc2 0%, #25242D 100%); */
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
     color: #D53900;
-    /* padding: 5vmin; */
+    /* background-color: #25242D90; */
+    padding: 5vmin;
+    margin-top: 8vh;
 }
 
+.home-body h3 {
+    color: #D53900;
+    text-shadow: 1px 2px 2px #25242D90;
+
+}
+.home-body p {
+    color: white;
+    font-family: 'Carrois Gothic SC', sans-serif;
+    font-size: 5vmin;
+    margin-top: 5vmin;
+}
+
+.home-body img {
+    width: 90%;
+    height: auto;
+    margin-top: 5vmin;
+    border-radius: 5%;
+    box-shadow:  0 2px 5px 5px #25242D90
+
+}

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 // import './App.css';
 import './Menu.css'
 import {Link} from 'react-router-dom'
+import axios from 'axios'
 
 
 
@@ -10,7 +11,7 @@ class Menu extends Component {
   constructor(){
     super()
     this.state = {
-      open: true,
+      open: false,
     }
   }
 
@@ -18,6 +19,15 @@ class Menu extends Component {
     this.setState({
         open: !this.state.open
     });
+  }
+
+  logout = () => {
+    axios
+      .get('/auth/logout')
+      .then(() => {
+        this.props.updateUser({});
+      })
+      .catch(err => console.log(err));
   }
 
 
@@ -38,9 +48,9 @@ class Menu extends Component {
                 </div>
                 <div className='menu-list-close'>
                     <ul>
-                        <li><Link id='hamLink'to='/login'>login/Create account</Link></li>
+                        {/* <li><Link id='hamLink'to='/login'>login/Create account</Link></li> */}
                         <li><Link id='hamLink'to='/gamecreator'>quick start</Link></li>
-                        <li><Link id='hamLink'to='/'>home</Link></li>
+                        {/* <li><Link id='hamLink'to='/'>home</Link></li> */}
                     </ul>
                 </div>
              </div>
@@ -55,10 +65,11 @@ class Menu extends Component {
                 </div>
                 <div className='menu-list-open'>
                     <ul>
-                        <li><Link id='hamLink'to='/gamecreator' onClick={this.handleClick}>quick start</Link></li>
-                        <li><Link id='hamLink'to='/userhome' onClick={this.handleClick} >my games</Link></li>
-                        <li><Link id='hamLink'to='/'onClick={this.handleClick} >home</Link></li>
-                        <li><Link id='hamLink'to='/login' onClick={this.handleClick}>login</Link></li>
+                        {/* <li><Link id='hamLink'to='/gamecreator' onClick={this.handleClick}>quick start</Link></li> */}
+                        <li><Link id='hamLink'to='/'onClick={this.handleClick}>home</Link></li>
+                        <li><Link id='hamLink'to='/userhome' onClick={this.handleClick} >MY GAMES/LOGIN</Link></li>
+                        {/* <li><Link id='hamLink'to='/login' onClick={this.handleClick}>login</Link></li> */}
+                        {/* <li onClick={this.logout}>LOGOUT</li> */}
                     </ul>
                 </div>
             </div>

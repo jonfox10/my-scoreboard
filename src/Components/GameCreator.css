@@ -8,12 +8,13 @@
 
 .gameCreator-container {
     position: relative;
-    width: 100%;
-    padding-top: 45%;
+    width: 100vw;
+    /* padding-top: 45%; */
+    /* border: 5px ridge #D53900; */
 }
 
 .startForm {
-    /* width: 90vw; */
+    width: 80vw;
     padding: 2.5vmin 5vmin;
     /* padding-top: 2.5vmin; */
     /* margin: 2.5vmin 2.5vmin 0 2.5vmin; */
@@ -32,6 +33,7 @@
     border-right: 2.5px ridge orangered; */
     background-color: #25242D;
     border-radius: 20px;
+    margin: 10vh auto;
 }
 .startForm h3{
  margin-bottom: 5vmin;
@@ -47,7 +49,9 @@
     background-color: transparent;
     border: none;
     border-bottom: 1px solid #DCE1D8;
-    color: #DCE1D8
+    color: #D53900;
+    font-size: 4vmin;
+
 }
 .frmInput:focus {
     border: none;
@@ -60,13 +64,21 @@
     /* color: #D53900 */
 }
 .frmBtn {
-    min-width: 20vmin;
+    /* min-width: 20vmin;
     background-color: whitesmoke;
     border: 1px solid black;
     border-radius: 1vmin;
     margin: 1vmin;
-    padding: .5vmin 2vmin;
-
+    padding: .5vmin 2vmin; */
+    min-width: 20vmin;
+    background-color: #D53900;
+    border: .5vmin ridge #25242D;
+    border-radius: 5vmin;
+    margin: 1vmin 0;
+    padding: .5vmin 1vmin;
+    font-family: 'Graduate', cursive;
+    font-size: 3vmin;
+    font-weight: bolder;
 }
 
 

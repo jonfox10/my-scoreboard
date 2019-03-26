@@ -1,7 +1,7 @@
 .menu-container {
     position: fixed;
     top: 0;
-    width: 100%;
+    width: 100vw;
     z-index: 3;
 }
 
@@ -51,9 +51,9 @@
     right: 0;
     background-color: #25242D;
     padding: 4vmin;
-    width: 100%;
+    width: 100vw;
     text-align: right;
-    transform: translate(0px, 6px);
+    transform: translate(0px, 2.5vmin);
     transition: .75s;
     border-bottom: 2px groove #D53900;
   }

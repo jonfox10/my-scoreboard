@@ -12,19 +12,14 @@ class Login extends Component {
             email: '',
             password: '',
             login: false,
-            register: false
+            register: false,
+            
 
         }    
     }
 
-    handleClear = (event) => {
-        this.setState({
-            email: '',
-            password: ''
-        })
-    }
 
-    showLogin = (e) => {
+    showLogin = () => {
         if(!this.state.login){
             this.setState({
                 login: !this.state.login,
@@ -38,7 +33,7 @@ class Login extends Component {
         }
     }
 
-    showRegister = (e) => {
+    showRegister = () => {
         if(!this.state.register){
             this.setState({
                 register: !this.state.reister, 
@@ -52,57 +47,41 @@ class Login extends Component {
         }
     }
 
-    handleSubmitNew = async (e) => {
-        // console.log('before', this.state)
-        e.preventDefault();
+    handleClear = () => {
+        this.setState({
+            email: '',
+            password: '',
+        })
+        this.showLogin();
+        this.showRegister();
+    }
+
+    handleSubmitNew = () => {
         const { email, password } = this.state;
-        if (email && password) {
-          let res = await axios.post('/auth/register', { email, password });
-          console.log(res.data)
-          if (
-            res.data ===
-            "Account Already Exists. Please go back and log in, or use a different email address."
-          ) {
-            alert(res.data);
-          } 
-          else {
-              // console.log('THIS ONE RIGHT HERE:', res)
-              const user = res.data;
-              if (user) {
-                // this.props.updateUser(user);
-                this.props.history.push('/userhome');
-              } else {
-                alert("Please enter a valid email and password");
-              }
-          }
-    
-          // .catch(err => {
-          //     console.log(err);
-          // });
-        }
-        
+        axios   
+            .post('/auth/register', { email, password })
+            .then(user => {
+                this.setState({email: '', password: ''});
+                alert('Success! Please log in with your newly created credentials.');
+            })
+            .catch(err => {
+                this.setState({email: '', password: ''});
+                alert(err.response.request.response);
+            })
     };
 
-    handleSubmitLogin = async (e) => {
-        e.preventDefault();
+    handleSubmitLogin = () => {
+        // e.preventDefault();
         const { email, password } = this.state;
-        if (email && password) {
-            axios.post('/auth/login', { email, password })
-                .then(res => {
-                    const user = res.data;
-                    if (user.account_id) {
-                        // this.props.updateUser(user);
-                        this.props.history.push('/userhome')
-                    } 
-                    // else {
-                    //     alert('Please enter a valid email and password')
-                    // }
-                })
-                .catch(err => {
-                    this.setState({warningVisible: true});
-                    console.log(err);
-                });
-        }
+        axios.post('/auth/login', { email, password })
+            .then(res => {
+                const user = res.data;
+                this.props.updateUser(user);
+                this.setState({email: '', password: '', })
+            
+            })
+            .catch(err => console.log(err.response.request.response));
+            
     }
 
 
@@ -125,6 +104,7 @@ class Login extends Component {
                     <h3>login:</h3>
                     <div>
                     email: <input 
+                                className='frmInput'
                                 type='text'
                                 name='email'
                                 value={this.state.email}
@@ -133,6 +113,7 @@ class Login extends Component {
                     </div>
                     <div>
                     password: <input 
+                                className='frmInput'
                                 type='text'
                                 name='password'
                                 value={this.state.password}
@@ -153,6 +134,7 @@ class Login extends Component {
                     <h3>new account:</h3>
                     <div>
                     email: <input 
+                                className='frmInput'
                                 type='text'
                                 name='email'
                                 value={this.state.email}
@@ -161,6 +143,7 @@ class Login extends Component {
                     </div>
                     <div>
                     password: <input 
+                                className='frmInput'
                                 type='text'
                                 name='password'
                                 value={this.state.password}
@@ -180,9 +163,10 @@ class Login extends Component {
 
     return (
       <div className='login-container'>
-          <div>
+          <div className='loginButtons'>
               <button className='loginBtn' id='btnL' onClick={this.showLogin}>LOGIN</button>
-              <button className='loginBtn' id='btnR' onClick={this.showRegister}>CREATE ACCOUNT</button>
+              <button className='loginBtn' id='btnM' onClick={this.showRegister}>CREATE ACCOUNT</button>
+              <button className='loginBtn' id='btnR' onClick={this.props.logout}>LOG OUT</button>
           </div>
           <div className='login-forms'>
               {form}

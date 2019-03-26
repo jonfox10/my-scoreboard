@@ -1,18 +1,19 @@
-
+/* coolers colorPallet: https://coolors.co/d53900-25242d-7ebdc2-dce1d8-f9f922*/
 .App {
   position: absolute;
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh;
-  /* margin: auto; */
   /* height: 100vh; */
+  /* margin: auto; */
+  min-height: 100vh;
   background-image: radial-gradient(#DCE1D8 0%, #25242D 100%);
   color: #D53900;
   text-align: center;
   font-size: 8vmin;
   font-weight: bolder;
   font-family: 'Graduate', cursive;
+  overflow: hidden;
 }
 
 /* .App {

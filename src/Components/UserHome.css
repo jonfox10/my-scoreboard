@@ -8,20 +8,27 @@
 
 .user-container {
     position: relative;
-    margin: 5vmin 0;
+
+    margin: auto;
     /* width: 100vw; */
-    height: 80vh;
+    /* height: 80vh; */
     /* padding-top: 5vmin; */
     /* z-index: 5; */
     /* border: 5px solid red; */
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
+    overflow: scroll;
+    min-height: 100vh;
 
 }
 
 .user-container h3{
     font-family: 'Graduate', cursive;
-    color: white;  
+    color: #D53900;  
+}
+
+#logoutBtn {
+    margin-top: 10vh;
 }

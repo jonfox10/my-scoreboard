@@ -1,51 +1,47 @@
 const bcrypt = require('bcryptjs');
 
 module.exports = {
-    register: async (req, res) => {
+    register: async (req, res, next) => {
         // console.log('look at the req:', req.body)
-        const dbInstance = req.app.get('db');
-        let { email, password } = req.body;
-        console.log('body:', email, password)
-        let pwd = bcrypt.hashSync(password, 10);
-        password = pwd;
-        let account = await dbInstance.user_login([email])
-        if (!account[0]) {
-            let newUser = await dbInstance.new_user([email, pwd]);
-            //   console.log('HERE:', newUser)
-                req.session.user = newUser[0];
-                res.status(200).send(newUser[0]);
-        } else {
-            res.send("Account Already Exists. Please go back and log in, or use a different email address.")
-        }
-
-    },
-    login: (req, res) => {
-        const dbInstance = req.app.get('db');
         const { email, password } = req.body;
-        console.log(email, password);
-        dbInstance.user_login(email)
-            .then((user) => {
-                console.log('Here:', user)
-                if (bcrypt.compareSync(password, user[0].account_pass)) {
-                    delete user[0].account_pass;
-                    req.session.user = user[0];
-                    console.log('Look up here:', user[0])
-                    res.status(200).send(user[0]);
-                } else {
-                    res.status(401).send({ error: "Invalid Username or password." });
-                    // console.log(res)
-                }
-            })
-            .catch(err => {
-                res.status(500).send(err);
-                // console.log(err)
-            })
+        const db = req.app.get('db');
+        const result = await db.user_login([email]);
+        const existingUser = result[0];
+        if (existingUser) {
+            return res.status(409).send('Email has already been used');
+        } 
+        const salt = bcrypt.genSaltSync(10);
+        const hash = bcrypt.hashSync(password, salt);
+        const newUser = await db.new_user([email, hash]);
+        const user = newUser[0];
+        req.session.user = { email: user.account_name, id: user.account_id };
+        return res.status(201).send(req.session.user);
     },
-    logout: (req, res) => {
-        // console.log('req:', req)
-        if (req.session.user) {
-            req.session.destroy();
-            res.status(200).send({ message: "Successfully logged out." })
+
+
+    login: async (req, res) => {
+        
+        const { email, password } = req.body;
+        const foundUser = await req.app.get('db').user_login([email]);
+        const user = foundUser[0];
+        if(!user) {
+            return res.status(401).send('User not found. Please register as a new user before loggin in')
         }
+        // const isAuthenticated = bcrypt.compareSync(password, user.password);
+        if (!bcrypt.compareSync(password, user.account_pass)) {
+            return res.status(403).send('Incorrect password');
+        }
+        req.session.user = { email: user.account_name, id: user.account_id,  };
+        return res.send(req.session.user);
+    },
+    
+    logout: (req, res) => {
+    //     // console.log('req:', req)
+    //     if (req.session.user) {
+    //         req.session.destroy();
+    //         res.status(200).send({ message: "Successfully logged out." })
+    //     }
+        req.session.destroy();
+    return res.sendStatus(200)
     }
 }
