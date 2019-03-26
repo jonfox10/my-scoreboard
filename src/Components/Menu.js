@@ -48,9 +48,8 @@ class Menu extends Component {
                 </div>
                 <div className='menu-list-close'>
                     <ul>
-                        {/* <li><Link id='hamLink'to='/login'>login/Create account</Link></li> */}
-                        <li><Link id='hamLink'to='/gamecreator'>quick start</Link></li>
-                        {/* <li><Link id='hamLink'to='/'>home</Link></li> */}
+                        <li><Link id='hamLink'to='/'onClick={this.handleClick}>home</Link></li>
+                        <li><Link id='hamLink'to='/userhome' onClick={this.handleClick} >MY GAMES/LOGIN</Link></li>
                     </ul>
                 </div>
              </div>
@@ -65,11 +64,8 @@ class Menu extends Component {
                 </div>
                 <div className='menu-list-open'>
                     <ul>
-                        {/* <li><Link id='hamLink'to='/gamecreator' onClick={this.handleClick}>quick start</Link></li> */}
                         <li><Link id='hamLink'to='/'onClick={this.handleClick}>home</Link></li>
                         <li><Link id='hamLink'to='/userhome' onClick={this.handleClick} >MY GAMES/LOGIN</Link></li>
-                        {/* <li><Link id='hamLink'to='/login' onClick={this.handleClick}>login</Link></li> */}
-                        {/* <li onClick={this.logout}>LOGOUT</li> */}
                     </ul>
                 </div>
             </div>

@@ -33,8 +33,8 @@ class GameCreator extends Component {
         axios
             .post('/api/game', this.state)
             .catch(error => { 
-                console.log(error);
-                alert(error.response.request.response)
+                console.log(error.response.request.response);
+                // alert(error.response.request.response)
             })
 
             

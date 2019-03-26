@@ -44,10 +44,10 @@ app.post(`/auth/register`, authCtrl.register);
 app.post(`/auth/login`, authCtrl.login);
 app.get(`/auth/logout`, authCtrl.logout);
 
-app.get(`/api/games/user`, auth.usersOnly, ctrl.getUserGame)
+app.get(`/api/games/user`, ctrl.getUserGame)
 // app.get(`/api/accountInfo/:account_id`, authCtrl.retrieveAccountInfo)
 
-app.post(`/api/game`, auth.usersOnly, ctrl.addGame);
+app.post(`/api/game`, ctrl.addGame);
 app.delete(`/api/game/:id`, ctrl.deleteOne);
 // app.put('/api/game', ctrl.update);
 
