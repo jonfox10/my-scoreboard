@@ -2,11 +2,7 @@
     position: fixed;
     top: 0;
     width: 100vw;
-<<<<<<< HEAD
-    z-index: 103;
-=======
     z-index: 10;
->>>>>>> 6d83a8e7ed3d4d4afcdb06ed6a2ce778de462748
 }
 
 
@@ -90,15 +86,3 @@
     background-color: #D53900;
     color: #25242D;
   } */
-<<<<<<< HEAD
-=======
-
-  .menu-list-open li {
-    margin-top: 1vmin;
-    font-size: 4vmin;
-  }
-
-  .change:hover {
-    cursor: pointer;
-  }
->>>>>>> 6d83a8e7ed3d4d4afcdb06ed6a2ce778de462748
