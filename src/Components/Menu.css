@@ -11,6 +11,11 @@
     cursor: pointer;
     margin: 0;
 }
+
+.change:hover {
+  cursor: pointer;
+}
+
 .menu-header{
     background-color: #25242D;
     text-shadow: 1px 1px 2px #DCE1D8;

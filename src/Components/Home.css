@@ -30,9 +30,9 @@
     justify-content: space-between;
     align-items: center;
     color: #D53900;
-    background-color: #25242D90;
-    padding: 5vmin;
-    margin-top: 10vh;
+    /* background-color: #25242D90; */
+    /* padding: 5vmin; */
+    margin-top: 5vh;
 }
 
 .home-body h3 {
