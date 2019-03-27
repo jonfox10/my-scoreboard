@@ -2,9 +2,9 @@
 /* font-family: 'Geo', sans-serif; */
 /* font-family: 'Carrois Gothic SC', sans-serif; */
 .home-container {
-    position: absolute;
-    top: 0;
-    left: 0;
+    position: relative;
+    /* top: 0;
+    left: 0; */
     width: 100vw;
     min-height: 100vh;
     /* margin: auto; */
